@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  atcoder:
+    build: .
+    container_name: 'atcoder'
+    working_dir: '/src'
+    tty: true
+    volumes:
+      - ./src:/src
