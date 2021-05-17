@@ -3,6 +3,37 @@ import sys
 
 
 def solve(N: int, A: "List[int]", Q: int, B: "List[int]"):
+    A = sorted(A)
+    ret = []
+    for b in B:
+        row = 0
+        high = len(A) - 1
+        mid = 0
+        while(row <= high):
+            mid = (high + row) // 2
+            a = A[mid]
+            if a > b:
+                high = mid - 1
+            elif a < b:
+                row = mid + 1
+            else:
+                break
+
+        if A[mid] == b:
+            ret.append(0)
+        elif A[mid] > b:
+            if mid == 0:
+                ret.append(abs(A[mid] - b))
+            else:
+                ret.append(min(abs(A[mid] - b), abs(A[mid - 1] - b)))
+        elif A[mid] < b:
+            if mid == len(A) - 1:
+                ret.append(abs(A[mid] - b))
+            else:
+                ret.append(min(abs(A[mid] - b), abs(A[mid + 1] - b)))
+
+    for r in ret:
+        print(r)
     return
 
 
