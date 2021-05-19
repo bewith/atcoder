@@ -3,6 +3,18 @@ import sys
 
 
 def solve(N: int, A: int, B: int, C: int):
+    maxCount = min(N // min(A, B, C), 10000)
+    ret = maxCount
+    
+    for a in range(maxCount):
+        if N < a * A: continue
+        for b in range(maxCount - a):
+            tmpSum = a * A + b * B
+            if N < tmpSum: continue
+            if (N - tmpSum) % C == 0:
+                c = (N - tmpSum) // C
+                ret = min((a + b + c), ret)
+    print(ret)
     return
 
 
