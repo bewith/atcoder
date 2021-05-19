@@ -3,6 +3,13 @@ import sys
 
 
 def solve(N: int, A: "List[int]", B: "List[int]"):
+    A = sorted(A)
+    B = sorted(B)
+
+    ret = 0
+    for i in range(N):
+        ret += abs(A[i] - B[i])
+    print(ret)
     return
 
 
