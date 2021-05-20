@@ -11,5 +11,6 @@ ENV TZ JST-9
 
 RUN apt-get install -y vim less
 RUN pip install --upgrade pip
+RUN pip install --upgrade numpy
 RUN pip install --upgrade autopep8
 RUN pip install --upgrade atcoder-tools
