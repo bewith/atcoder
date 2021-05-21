@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
 import sys
+import math
+from decimal import Decimal
 
 YES = "Yes"  # type: str
 NO = "No"  # type: str
 
 
 def solve(a: int, b: int, c: int):
+    ret = 1
+    for i in range(b):
+        ret = ret * c
+    if a < ret:
+        print(YES)
+    else:
+        print(NO)
     return
 
 
