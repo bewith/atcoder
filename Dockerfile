@@ -14,3 +14,11 @@ RUN pip install --upgrade pip
 RUN pip install --upgrade numpy
 RUN pip install --upgrade autopep8
 RUN pip install --upgrade atcoder-tools
+
+# Default setting for atcodertools
+RUN echo "[codestyle]" >> /root/.atcodertools.toml
+RUN echo "workspace_dir='/workspaces/atcoder/src'" >> /root/.atcodertools.toml
+RUN echo "lang='python'" >> /root/.atcodertools.toml
+
+# Fix to avoid submit error
+RUN sed -i -e 's/Python3/Python/' /usr/local/lib/python3.9/site-packages/atcodertools/common/language.py
