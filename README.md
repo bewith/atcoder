@@ -38,7 +38,7 @@ vi /usr/local/lib/python3.9/site-packages/atcodertools/common/language.py
 ```
 docker-compose exec atcoder bash
 cd /src
-gen abs --lang python --workspace .
+atcoder-tools gen abs --lang python --workspace .
 cd abs/PracticeA/
 atcoder-tools test
 ```
