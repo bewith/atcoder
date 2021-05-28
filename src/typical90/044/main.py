@@ -2,7 +2,20 @@
 import sys
 
 
-def solve(N: int, Q: int, A: "List[int]", T: "List[int]", x: "List[int]", y: "List[int]"):
+def solve(N: int, Q: int, A: "List[int]", T: "List[int]", X: "List[int]", Y: "List[int]"):
+    slide = 0
+    for q in range(Q):
+        x = (X[q] - 1 + slide) % N
+        y = (Y[q] - 1 + slide) % N
+
+        if T[q] == 1:
+            tmp = A[x]
+            A[x] = A[y]
+            A[y] = tmp
+        elif T[q] == 2:
+            slide -= 1
+        else:
+            print(A[x])
     return
 
 
