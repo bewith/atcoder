@@ -3,6 +3,29 @@ import sys
 
 
 def solve(N: int, A: "List[int]", B: "List[int]", C: "List[int]"):
+    A = [i % 46 for i in A]
+    AM = [0 for i in range(46)]
+    for a in A:
+        AM[a] += 1
+
+    B = [i % 46 for i in B]
+    BM = [0 for i in range(46)]
+    for b in B:
+        BM[b] += 1
+    C = [i % 46 for i in C]
+    CM = [0 for i in range(46)]
+    for c in C:
+        CM[c] += 1
+
+    ret = 0
+    for i in range(46):
+        for j in range(46):
+            for k in range(46):
+                if (i + j + k) % 46 == 0:
+                    ret += AM[i] * BM[j] * CM[k]
+
+    print(ret)
+
     return
 
 
