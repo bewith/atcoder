@@ -3,6 +3,38 @@ import sys
 
 
 def solve(N: int, K: int, A: "List[int]", B: "List[int]"):
+    ret = []
+    for i in range(N):
+        ret.append(B[i])
+        ret.append(A[i] - B[i])
+
+    ret = sorted(ret, reverse=True)
+    
+    a = 0
+    for k in range(K):
+        a += ret[k]
+
+    print(a)
+
+
+
+    # dp = [[0 for _ in range(K + 1)] for _ in range(N + 1)]
+    # for n in range(N + 1):
+    #     for k in range(K + 1):
+    #         if n == 0:
+    #             dp[n][k] = 0
+    #             continue
+    #         if k == 0:
+    #             dp[n][k] = 0
+    #             continue
+    #         if k == 1:
+    #             dp[n][k] = max(dp[n - 1][k],B[n - 1])
+    #             continue
+
+    #         # Choose
+    #         dp[n][k] = max(dp[n - 1][k - 2] + A[n - 1], dp[n - 1][k - 1] + B[n - 1], dp[n - 1][k])
+    
+    # print(dp[N][K])
     return
 
 
